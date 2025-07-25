@@ -22,7 +22,7 @@ The project is divided into two main parts: the Flask backend API and the Flutte
 The backend is responsible for handling API requests, processing files, and communicating with external services like OpenAI and Firebase.
 
 ```
-/math-problem-solver
+/backend
 |-- app.py              # Main Flask application file, initializes the app and CORS.
 |-- config.py           # Configuration for API keys and Firebase credentials.
 |-- requirements.txt    # Python dependencies for the backend.
@@ -48,7 +48,7 @@ The backend is responsible for handling API requests, processing files, and comm
 The frontend is a single-page web application that allows users to interact with the backend API.
 
 ```
-/flutter_math_solver
+/flutter_app
 |-- lib/
 |   |-- main.dart         # The entry point of the Flutter application.
 |   |-- api/
@@ -93,24 +93,22 @@ Follow these steps to get both the backend and frontend running locally.
 
 ### 1. Backend Setup (Flask API)
 
-1.  **Clone/Download the Project**: Place the `math-problem-solver` directory on your local machine.
-
-2.  **Firebase Setup**:
+1.  **Firebase Setup**:
     * Go to your [Firebase Console](https://console.firebase.google.com/), create a new project.
     * Enable **Firestore Database**.
     * Go to **Project Settings** > **Service accounts**.
     * Click **"Generate new private key"** and download the JSON file.
-    * Rename the downloaded file to `firebase_credentials.json` and place it in the root of the `math-problem-solver` directory.
+    * Rename the downloaded file to `firebase_credentials.json` and place it in the root of the `backend` directory.
 
-3.  **Environment Variables**:
-    * Create a file named `.env` in the root of the `math-problem-solver` directory.
+2.  **Environment Variables**:
+    * Create a file named `.env` in the root of the `backend` directory.
     * Add your OpenAI API key to this file:
         ```
         OPENAI_API_KEY="your-actual-openai-api-key"
         ```
 
-4.  **Install Dependencies**:
-    * Navigate to the `math-problem-solver` directory in your terminal.
+3.  **Install Dependencies**:
+    * Navigate to the `backend` directory in your terminal.
     * Create and activate a virtual environment:
         ```bash
         python3 -m venv venv
@@ -121,7 +119,7 @@ Follow these steps to get both the backend and frontend running locally.
         pip install -r requirements.txt
         ```
 
-5.  **Run the Backend Server**:
+4.  **Run the Backend Server**:
     ```bash
     python app.py
     ```
@@ -129,19 +127,17 @@ Follow these steps to get both the backend and frontend running locally.
 
 ### 2. Frontend Setup (Flutter Web App)
 
-1.  **Clone/Download the Project**: Place the `flutter_math_solver` directory on your local machine.
-
-2.  **Get Dependencies**:
-    * Navigate to the `flutter_math_solver` directory in your terminal.
+1.  **Get Dependencies**:
+    * Navigate to the `flutter_app` directory in your terminal.
     * Run the following command to install the necessary packages:
         ```bash
         flutter pub get
         ```
 
-3.  **Run the Frontend App**:
+2.  **Run the Frontend App**:
     * Make sure your Flask backend is already running.
     * Ensure you have a Chrome browser available for Flutter to use.
-    * In the `flutter_math_solver` directory, run:
+    * In the `flutter_app` directory, run:
         ```bash
         flutter run -d chrome
         ```
